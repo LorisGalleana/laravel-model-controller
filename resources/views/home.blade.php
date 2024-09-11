@@ -7,11 +7,33 @@
 
 @section('content')
 <div class="container my-5">
-    <h1>{{ $title }}</h1>
-    <img src="{{ Vite::asset('resources/img/colibri.jpg') }}" alt="" class="img-fluid">
-    <p>
-        {{ $text }}
-    </p>
+    <h1>I miei film</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="col">ID</th>
+                <th class="col">Titolo</th>
+                <th class="col">Data di uscita</th>
+                <th class="col">Voto</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach ($movies as $movie )
+                <tr>
+                    <td>{{ $movie->id }}</td>
+                    <td>{{ $movie->title }}</td>
+                    <td>{{ $movie->date }}</td>
+                    <td>{{ $movie->vote }}</td>
+                </tr>
+            @endforeach
+
+
+        </tbody>
+    </table>
+
+
 </div>
 
 @endsection
